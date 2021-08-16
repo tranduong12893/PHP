@@ -2,6 +2,8 @@
 <html lang="zxx">
 
 <head>
+
+    <base href="{{ asset('/') }}">
     <meta charset="UTF-8">
     <meta name="description" content="codelean Template">
     <meta name="keywords" content="codelean, unica, creative, html">
@@ -304,6 +306,8 @@
 <script src="front/js/jquery.dd.min.js"></script>
 <script src="front/js/jquery.slicknav.js"></script>
 <script src="front/js/owl.carousel.min.js"></script>
+
+<script src="front/js/owlcarousel2-filter.min.js"></script>
 <script src="front/js/main.js"></script>
 </body>
 
