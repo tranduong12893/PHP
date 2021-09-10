@@ -15,9 +15,9 @@
 <body>
 <div class="wrapper">
     <div class="container">
-        <div class="top_19">
+        <div class="top_1">
             <div class="row">
-                <div class="col" >
+                <div class="col" style="text-align: center" >
                     <h2>DANH MỤC HÀNG HOÁ</h2>
                 </div>
             </div>
@@ -26,32 +26,52 @@
                     {{Session::get('success')}}
                 </div>
             @endif
-            <form action="/add" method="get">
-                <div class="add">
-                    <br>
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-plus"></i>Thêm</button>
-                </div>
-            </form>
-            <table class="table table-bordered" style="width: 1170px;margin-left: 100px;margin-top: 50px" >
-                <thead>
-                <tr>
-                    <th class="ct">ID</th>
-                    <th class="ct">Name</th>
-                    <th class="ct">Price</th>
-                    <th class="ct">Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($warehouse as $wh)
+            <div class="row">
+                <table class="table table-bordered">
                     <tr>
-                        <td>{{$wh->id_name}}</td>
-                        <td>{{$wh->name}}</td>
-                        <td style="text-align: right">{{$wh->price}} VNĐ</td>
-                        <td><img src="front/img/{{ $wh->image }}" alt="" width="250" style="margin-left: 25px"></td>
+                        <th class="ct">ID</th>
+                        <th class="ct">Name</th>
+                        <th class="ct">Price</th>
+                        <th class="ct">Image</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    @foreach($warehouse as $wh)
+                        <tr>
+                            <td>{{$wh->id_name}}</td>
+                            <td>{{$wh->name}}</td>
+                            <td style="text-align: right">{{$wh->price}} VNĐ</td>
+                            <td><img src="front/img/{{ $wh->image }}" alt="" width="120" style="margin-left: 25px"></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+
+        </div>
+        <div class="top_2">
+            <div class="row">
+                <div class="col" >
+                    <h2 style="margin-top: 20px; text-align: center">THÊM HÀNG HOÁ</h2>
+                </div>
+            </div>
+            <form action="{{ route('store') }}" method="post" style="margin-top: 25px; margin-right: 150px; margin-left: 100px">
+                @csrf
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Mã hàng hoá:</label><br/>
+                    <input type="text" maxlength="15" required="required" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tên hàng hoá:</label><br/>
+                    <input type="text"  required="required" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Giá:</label><br/>
+                    <input type="text" maxlength="15" required="required" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Ảnh sản phẩm:</label><br/>
+                    <input type="file" required="required" name="image">
+                </div>
+                <button class="btn btn-success" style="width: 100px; height:40px; margin-top: 20px; margin-bottom: 15px">Thêm</button>
+            </form>
         </div>
     </div>
 </div>

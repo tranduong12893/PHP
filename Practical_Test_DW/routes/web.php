@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 //    return \App\Models\warehouse::all();
 //});
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
-Route::get('/add',[\App\Http\Controllers\HomeController::class,'add']);
-Route::post('add',[\App\Http\Controllers\HomeController::class,'wareHouse'])->name('wareHouse');
+Route::post('index',[\App\Http\Controllers\HomeController::class,'wareHouse'])->name('store');
 Route::post('/',[\App\Http\Controllers\HomeController::class,'index'])->name('index');
 Route::get('/',[\App\Http\Controllers\HomeController::class,'getDashboard']);

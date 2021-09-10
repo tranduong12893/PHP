@@ -10,9 +10,6 @@ class HomeController extends Controller
     public function index(){
         return view('index');
     }
-    public function add(){
-        return view('add');
-    }
 
     public function wareHouse(Request $request){
         $request ->validate([
@@ -21,13 +18,9 @@ class HomeController extends Controller
             'price'=>'required',
             'image'=>'required',
         ]);
-        $request->input('id_name');
-        $request->input('name');
-        $request->input('price');
-        $request->input('image');
 
         warehouse::create($request->all());
-        return redirect('/')
+        return redirect()->route('index')
             ->with('success','Bạn đã thêm dữ liệu thành công.');
     }
     public function getDashboard()
